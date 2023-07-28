@@ -8,9 +8,6 @@ Aplikasi ini memiliki dua halaman utama, yaitu:
 
 Aplikasi ini ditujukan untuk pengguna yang ingin melihat video live tentang produk-produk tertentu, baik untuk tujuan hiburan, informasi, atau pembelian. Aplikasi ini juga dapat membantu produsen atau penjual produk untuk meningkatkan penjualan dan popularitas produk mereka melalui video live. Aplikasi ini menggunakan Node.js Express sebagai server, MongoDB sebagai database, dan REST API sebagai struktur API. Aplikasi ini juga menggunakan dotenv, mongoose, dan depedensi lainnya yang terdaftar di file package.json.
 
-# Daftar Isi
-
-
 # Database dan API
 Proyek ini menggunakan MongoDB sebagai database dan REST API sebagai struktur API. MongoDB adalah sebuah database NoSQL yang menyimpan data dalam bentuk dokumen JSON. REST API adalah sebuah gaya arsitektur perangkat lunak yang menggunakan protokol HTTP untuk berinteraksi dengan sumber daya. Sumber daya adalah segala sesuatu yang dapat disediakan oleh server kepada klien, misalnya teks, gambar, video, atau fungsi.
 
@@ -22,9 +19,6 @@ Database MongoDB yang digunakan oleh proyek ini memiliki lima koleksi utama, yai
 - Koleksi users, yang berisi data tentang pengguna yang menonton atau berkomentar di video live tertentu. Setiap dokumen di koleksi ini memiliki dua atribut, yaitu username dan url_image_photo_profile. Atribut username berisi nama pengguna tersebut. Atribut url_image_photo_profile berisi alamat web foto profil pengguna tersebut.
 - Koleksi live_offers, yang berisi data tentang hubungan antara video live dan produk-produk yang terkait. Setiap dokumen di koleksi ini memiliki dua atribut, yaitu video_id dan product_id. Atribut video_id berisi id dari video live yang bersangkutan. Atribut product_id berisi id dari produk yang bersangkutan.
 - Koleksi comments, yang berisi data tentang komentar-komentar dari pengguna yang menonton video live tertentu. Setiap dokumen di koleksi ini memiliki empat atribut, yaitu video_id, username, comment, dan timestamp. Atribut video_id berisi id dari video live yang bersangkutan. Atribut username berisi nama pengguna yang berkomentar. Atribut comment berisi isi komentar tersebut. Atribut timestamp berisi waktu komentar tersebut dibuat.
-Berikut adalah gambar atau diagram yang menggambarkan hubungan antara koleksi-koleksi di database MongoDB:
-
-![Database Structure]
 
 ## API Structure
 Struktur API yang digunakan oleh proyek ini adalah REST API, yang menggunakan protokol HTTP untuk berkomunikasi antara klien dan server. Protokol HTTP menyediakan metode permintaan standar seperti GET, POST, PUT, DELETE, dan lainnya untuk mengakses dan memanipulasi sumber daya di server.
