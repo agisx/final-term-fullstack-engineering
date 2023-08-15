@@ -7,9 +7,17 @@ const videoSchema = new mongoose.Schema({
     type: String,
     required: true
   },
+  url_video: {
+    type: String,
+    required: true
+  },
   status: {
     type: String,
     enum: ['live', 'recorded', 'deleted'],
+    default: 'recorded'
+  },
+  title: {
+    type: String,
     default: 'recorded'
   },
   created_at: {
