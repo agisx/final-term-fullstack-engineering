@@ -38,7 +38,7 @@ export default function CommentsController(req, res, next) {
         // Check if the data is valid
         if (!username || !comment || !video_id) {
             // Return a 400 error if the data is missing or invalid
-            return res.status(400).json({ message: 'fail' });
+            return res.status(400).json({ message: 'Fail' });
         }
 
         // Check Username
@@ -46,7 +46,7 @@ export default function CommentsController(req, res, next) {
         // Check if the data is valid
         if (!user) {
             // Return a 404 error if the username is not valid
-            return res.status(404).json({ message: 'fail' });
+            return res.status(404).json({ message: 'User not found' });
         }
     
         // Create a new comment object with the data
@@ -61,6 +61,6 @@ export default function CommentsController(req, res, next) {
         newComment.save();
         
         // Return a 200 response with a success message
-        return res.status(200).json({ message: 'success'});
+        return res.status(200).json({ message: 'Success'});
     }
 };
