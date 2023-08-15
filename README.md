@@ -23,12 +23,14 @@ Database MongoDB yang digunakan oleh proyek ini memiliki lima koleksi utama, yai
 ## API Structure
 Struktur API yang digunakan oleh proyek ini adalah REST API, yang menggunakan protokol HTTP untuk berkomunikasi antara klien dan server. Protokol HTTP menyediakan metode permintaan standar seperti GET, POST, PUT, DELETE, dan lainnya untuk mengakses dan memanipulasi sumber daya di server.
 
-Proyek ini memiliki empat endpoint utama untuk mengakses dan memanipulasi sumber daya di database MongoDB, yaitu:
+Proyek ini memiliki enam endpoint utama untuk mengakses dan memanipulasi sumber daya di database MongoDB, yaitu:
 
 1. Endpoint /videos, yang digunakan untuk mendapatkan daftar video live yang sedang berlangsung atau sudah direkam.
-2. Endpoint /watch/(video_id), yang digunakan untuk mendapatkan detail video live dan produk-produk yang terkait dengan video tersebut.
-3. Endpoint /watch/comments/(video_id), yang digunakan untuk mendapatkan daftar komentar dari pengguna lain yang menonton video live tersebut.
-4. Endpoint /watch/comments/submit, yang digunakan untuk menulis komentar sendiri pada video live tertentu.
+2. Enpoint /videos/search/o/(video_id), digunakan untuk mendapatkan sebuah video berdasarkan video_id.
+3. Endpoint /videos/search/m/(video_id), digunakan untuk mendapatkan daftar video berdasarkan video_id.
+4. Endpoint /watch/(video_id), yang digunakan untuk mendapatkan detail video live dan produk-produk yang terkait dengan video tersebut.
+5. Endpoint /watch/comments/(video_id), yang digunakan untuk mendapatkan daftar komentar dari pengguna lain yang menonton video live tersebut.
+6. Endpoint /watch/comments/submit, yang digunakan untuk menulis komentar sendiri pada video live tertentu.
 
 Berikut adalah daftar permintaan dan respons API untuk setiap endpoint, menggunakan format gist dari https://gist.github.com/BeattieM/324063512d166122ba5c
 
@@ -44,7 +46,46 @@ Permintaan ini tidak memiliki parameter, body, atau sejenisnya. Hanya respons se
     "videos": [
         {
             "_id": "60ff9f9f8c7b4d3b8c6c1e0f",
-            "url_image_thumbnail": "https://example.com/video1.jpg"
+            "url_image_thumbnail": "https://example.com/video1.jpg",
+            "url_video": "https://www.youtube.com/watch?v=id_video"
+        }
+    ]
+}
+```
+
+### Search a Video
+**GET**
+```
+http://localhost:3000/search/o/(video_id)
+```
+
+Permintaan ini memiliki parameter video_id yang berisi video_id untuk mendapatkan sebuah video. Digunakan untuk load halaman live offers. Respons API-nya sebagai berikut:
+```
+{
+    "video": {        
+            "_id": "60ff9f9f8c7b4d3b8c6c1e0f",
+            "url_image_thumbnail": "http://img.youtube.com/vi.jpg",
+            "created_at": "2023-07-23T11:49:29.110Z",
+            "updated_at": "2023-07-23T11:49:29.110Z",
+            "status": "live",
+            "title": "Title video",
+            "url_video": "https://www.youtube.com/watch?v=id_video"
+    }
+}
+```
+### Search Video List
+**GET**
+```
+http://localhost:3000/search/m/(video_id)
+```
+
+Permintaan ini memiliki parameter video_id yang berisi video_id untuk mendapatkan daftar video. Digunakan untuk searching video. Respons API-nya sebagai berikut:
+```
+{
+    "videos": [
+        {
+            "_id": "64bd13d08c7b4d3b8c6c1e0d",
+            "title": "Title video"
         }
     ]
 }
@@ -125,6 +166,12 @@ Jika gagal, respons sebagai berikut:
 ```
 {
     "message": "fail"
+}
+```
+Jika user tidak ditemukan, respons sebagai berikut:
+```
+{
+    "message": "User not found"
 }
 ```
 ## How to run
