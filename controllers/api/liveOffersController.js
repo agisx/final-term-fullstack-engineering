@@ -43,8 +43,8 @@ export default function LiveOffersController(req, res, next) {
                 { $lookup: { from: 'products', localField: 'product_id', foreignField: '_id', as: 'product' } },
                 // Unwind the product array to make it an object
                 { $unwind: '$product' },
-                // Project only the fields that we want to show in the output
-                { $project: { _id: '$product._id', url_product: '$product.url_product', title: '$product.title', price: '$product.price' } },
+                // Project only the fields that we want to show in the output 
+                { $project: { _id: '$product._id', url_product: '$product.url_product', url_image_product: '$product.url_image_product', title: '$product.title', price: '$product.price' } },
             ]);
         
             // Send the product list as a response
