@@ -8,6 +8,20 @@ Aplikasi ini memiliki dua halaman utama, yaitu:
 
 Aplikasi ini ditujukan untuk pengguna yang ingin melihat video live tentang produk-produk tertentu, baik untuk tujuan hiburan, informasi, atau pembelian. Aplikasi ini juga dapat membantu produsen atau penjual produk untuk meningkatkan penjualan dan popularitas produk mereka melalui video live. Aplikasi ini menggunakan Node.js Express sebagai server, MongoDB sebagai database, dan REST API sebagai struktur API. Aplikasi ini juga menggunakan dotenv, mongoose, dan depedensi lainnya yang terdaftar di file package.json.
 
+# Features
+Aplikasi ini adalah aplikasi yang memungkinkan pengguna untuk menonton video dari YouTube dan melihat produk terkait. Aplikasi ini memiliki beberapa fitur utama, yaitu:
+
+- Pengguna dapat membuka, setidaknya dua halaman, yaitu halaman beranda dan halaman detail video. Halaman beranda menampilkan daftar video dengan thumbnail dari YouTube yang dapat dipilih oleh pengguna. Halaman detail video menampilkan video yang dipilih oleh pengguna, beserta daftar produk, komentar, dan formulir.
+- Pengguna dapat melihat daftar video dengan thumbnail dari YouTube di halaman beranda. 
+- Pengguna dapat mengklik setiap video dan pergi ke halaman detail video. 
+- Pengguna dapat melihat daftar produk, video YouTube, mencantumkan komentar, dan mengirimkan formulir komentar di halaman detail video. Daftar produk menampilkan produk-produk yang terkait dengan video yang dipilih oleh pengguna, seperti harga, nama produk, dan gambar.
+- Video akan diputar otomatis jika status video tersebut live dan tidak dapat kontrol akses video, jika video tersebut memiliki status recorded maka video tersebut dapat di kontrol, dan jika video tersebut telah di deleted maka video tersebut tidak dapat di tonton.
+- Pengguna hanya perlu memasukkan nama dan komentar saat mengirimkan komentar di formulir komentar. Formulir komentar terletak di bagian kanan halaman video.
+- Pengguna dapat melihat komentar mereka di bagian daftar komentar setelah pengiriman berhasil. Komentar pengguna akan ditampilkan di urutan terbaru, bersama dengan nama dan waktu pengiriman mereka.
+- *BONUS* Selain fitur-fitur yang telah disebutkan di atas, aplikasi ini juga memiliki fitur tambahan, yaitu:
+    - Pengguna dapat mencari video yang mereka inginkan dengan menggunakan fitur pencarian. Fitur pencarian terletak di bagian atas halaman beranda. Pengguna dapat mengetikkan kata kunci atau frasa yang terkait dengan video yang mereka cari.
+    - Terdapat tampilan button sign in, saat ini sedang dalam pengembangan.
+
 # Database dan API
 Proyek ini menggunakan MongoDB sebagai database dan REST API sebagai struktur API. MongoDB adalah sebuah database NoSQL yang menyimpan data dalam bentuk dokumen JSON. REST API adalah sebuah gaya arsitektur perangkat lunak yang menggunakan protokol HTTP untuk berinteraksi dengan sumber daya. Sumber daya adalah segala sesuatu yang dapat disediakan oleh server kepada klien, misalnya teks, gambar, video, atau fungsi.
 
@@ -194,10 +208,13 @@ Jika user tidak ditemukan, respons sebagai berikut:
 Untuk menjalankan server menggunakan Node.js Express, Anda perlu melakukan langkah-langkah berikut:
 
 1. Pastikan Anda sudah menginstal Node.js dan npm di komputer Anda. Anda dapat memeriksa versi Node.js dan npm yang Anda miliki dengan mengetikkan perintah node -v dan npm -v di terminal atau command prompt. Jika Anda belum menginstal Node.js dan npm, Anda dapat mengunduh dan menginstalnya dari situs web resminya.
-2. Pastikan Anda sudah mengunduh atau mengkloning kode dan dokumen proyek ini dari repositori GitHub. Anda dapat menggunakan perintah git clone https://github.com/agisx/final-term-fullstack-engineering.git di terminal atau command prompt untuk mengkloning repositori ini ke komputer Anda.
+2. Pastikan Anda sudah mengunduh atau mengkloning kode dan dokumen proyek ini dari repositori GitHub. Anda dapat menggunakan perintah git clone https://github.com/agisx/final-term-fullstack-engineering.git di terminal atau command prompt untuk mengkloning repositori ini ke komputer Anda. Terdapat dua branchs yang berisi frontend dan backend. Pastikan telah klon semua branchs.
 3. Buka folder proyek yang sudah Anda unduh atau kloning di terminal atau command prompt. Anda dapat menggunakan perintah cd final-term-fullstack-engineering untuk masuk ke folder proyek tersebut.
 4. Instal semua depedensi yang dibutuhkan oleh proyek ini dengan menggunakan perintah npm install di terminal atau command prompt. Ini akan menginstal semua depedensi yang terdaftar di file package.json secara otomatis.
-5. Ubah nama file .env.dev menjadi .env dengan menggunakan perintah mv .env.dev .env di terminal atau command prompt. Ini akan mengganti nama file konfigurasi yang berisi variabel lingkungan yang dibutuhkan oleh proyek ini.
-6. Edit isi file .env sesuai dengan konfigurasi yang Anda inginkan, misalnya alamat dan nama database MongoDB, port server, port MongoDB, atau konfigurasi lainnya yang sudah tersedia. Anda dapat menggunakan perintah cat .env untuk melihat isi file .env dan memastikan bahwa semua variabel sudah sesuai dengan konfigurasi Anda.
-7. Jalankan server di mode pengembangan dengan menggunakan perintah node app.js atau nodemon app jika ingin menggunakan nodemon di terminal atau command prompt. Ini akan menjalankan server di alamat http://localhost:3000/ atau alamat lain yang Anda tentukan di file .env.
-8. Akses API dengan aplikasi seperti Postman, dengan host http://localhost:3000/ atau host lain yang Anda tentukan di file .env. Anda dapat menggunakan permintaan dan respons API yang sudah disediakan di sub bab sebelumnya untuk menguji fungsi-fungsi API.
+5. BACKEND
+    - Ubah nama file .env.dev menjadi .env dengan menggunakan perintah mv .env.dev .env di terminal atau command prompt. Ini akan mengganti nama file konfigurasi yang berisi variabel lingkungan yang dibutuhkan oleh proyek ini.
+    - Edit isi file .env sesuai dengan konfigurasi yang Anda inginkan, misalnya alamat dan nama database MongoDB, port server, port MongoDB, atau konfigurasi lainnya yang sudah tersedia. Anda dapat menggunakan perintah cat .env untuk melihat isi file .env dan memastikan bahwa semua variabel sudah sesuai dengan konfigurasi Anda.
+    - Jalankan server di mode pengembangan dengan menggunakan perintah *node app.js atau nodemon app* jika ingin menggunakan nodemon di terminal atau command prompt. Ini akan menjalankan server di alamat http://localhost:port/ atau alamat lain yang Anda tentukan di file .env.
+    - Akses API dengan aplikasi seperti Postman, dengan host http://localhost:port/ atau host lain yang Anda tentukan di file .env. Anda dapat menggunakan permintaan dan respons API yang sudah disediakan di sub bab sebelumnya untuk menguji fungsi-fungsi API.
+6. FRONTEND
+    - Jalankan server klien di mode pengembangan dengan menggunakan perintah *npm run start* di terminal atau command prompt. Ini akan menjalankan server di alamat http://localhost:port/, default-nya port-nya 3000.
