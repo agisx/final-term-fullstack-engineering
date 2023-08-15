@@ -7,6 +7,9 @@ const productSchema = new mongoose.Schema({
     type: String,
     required: true
   },
+  url_image_product: {
+    type: String
+  },
   title: {
     type: String,
     required: true

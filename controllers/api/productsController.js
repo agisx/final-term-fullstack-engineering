@@ -7,7 +7,7 @@ export default function ProductsController(req, res, next) {
     this.getProducts = async (req, res) => {
         try {
             // Find all Products from the database
-            const Products = await Product.find().select('url_product title price');
+            const Products = await Product.find().select('url_product url_image_product title price');
             // Send the Products as a response
             res.json({products : Products});
         } catch (err) {
