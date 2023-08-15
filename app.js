@@ -1,8 +1,10 @@
 // import
 import express from "express";
+import cors from "cors";
 
 // setup server
 const app = express();
+app.use(cors()) // using cors
 app.use(express.json()) // for parsing application/json
 app.use(express.urlencoded({ extended: true,  })) // for parsing application/x-www-form-urlencoded
 import "dotenv/config.js";
@@ -19,6 +21,6 @@ app.use('/videos', videosRouter);
 app.use('/products', productsRouter);
 app.use('/watch', watchsRouter);
 
-app.listen(process.env.SERVER_PORT, () => {
-    console.log(`listening on port ${process.env.SERVER_HOST}:${process.env.SERVER_PORT}`);
+app.listen(process.env.PORT || 3000, () => {
+    console.log(`listening on ${process.env.SERVER_HOST}`);
 });
