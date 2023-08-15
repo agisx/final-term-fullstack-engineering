@@ -5,7 +5,7 @@ import "dotenv/config.js";
 import mongoose from 'mongoose';
 
 // Define the database URL
-const dbURL = `${process.env.MONGO_HOST}:${process.env.MONGO_PORT}/${process.env.DATABASE_NAME}`;
+const dbURL = `${process.env.MONGO_HOST}`;
 
 // Connect to the database using mongoose
 mongoose.connect(dbURL, { useNewUrlParser: true, useUnifiedTopology: true })
