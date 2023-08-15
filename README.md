@@ -14,11 +14,27 @@ Proyek ini menggunakan MongoDB sebagai database dan REST API sebagai struktur AP
 ## Database Structure
 Database MongoDB yang digunakan oleh proyek ini memiliki lima koleksi utama, yaitu:
 
-- Koleksi videos, yang berisi data tentang video live yang sedang berlangsung atau sudah direkam. Setiap dokumen di koleksi ini memiliki dua atribut, yaitu url_image_thumbnail dan status. Atribut url_image_thumbnail berisi alamat web gambar thumbnail dari video live tersebut. Atribut status berisi string yang menunjukkan apakah video live tersebut masih live, sudah direkam, atau sudah dihapus.
-- Koleksi products, yang berisi data tentang produk-produk yang terkait dengan video live tertentu. Setiap dokumen di koleksi ini memiliki tiga atribut, yaitu url_product, title, dan price. Atribut url_product berisi alamat web produk tersebut. Atribut title berisi nama produk tersebut. Atribut price berisi harga produk tersebut dalam rupiah.
-- Koleksi users, yang berisi data tentang pengguna yang menonton atau berkomentar di video live tertentu. Setiap dokumen di koleksi ini memiliki dua atribut, yaitu username dan url_image_photo_profile. Atribut username berisi nama pengguna tersebut. Atribut url_image_photo_profile berisi alamat web foto profil pengguna tersebut.
-- Koleksi live_offers, yang berisi data tentang hubungan antara video live dan produk-produk yang terkait. Setiap dokumen di koleksi ini memiliki dua atribut, yaitu video_id dan product_id. Atribut video_id berisi id dari video live yang bersangkutan. Atribut product_id berisi id dari produk yang bersangkutan.
-- Koleksi comments, yang berisi data tentang komentar-komentar dari pengguna yang menonton video live tertentu. Setiap dokumen di koleksi ini memiliki empat atribut, yaitu video_id, username, comment, dan timestamp. Atribut video_id berisi id dari video live yang bersangkutan. Atribut username berisi nama pengguna yang berkomentar. Atribut comment berisi isi komentar tersebut. Atribut timestamp berisi waktu komentar tersebut dibuat.
+- Koleksi videos, yang berisi data tentang video live yang sedang berlangsung atau sudah direkam. Setiap dokumen di koleksi ini memiliki beberapa atribut, yaitu
+    - url_image_thumbnail
+    - url_video
+    - status
+    - title
+- Koleksi products, yang berisi data tentang produk-produk yang terkait dengan video live tertentu. Setiap dokumen di koleksi ini memiliki beberapa atribut,
+    - yaitu url_product
+    - url_image_product
+    - title
+    - price
+- Koleksi users, yang berisi data tentang pengguna yang menonton atau berkomentar di video live tertentu. Setiap dokumen di koleksi ini memiliki dua atribut, yaitu
+    - username
+    - url_image_photo_profile
+- Koleksi live_offers, yang berisi data tentang hubungan antara video live dan produk-produk yang terkait. Setiap dokumen di koleksi ini memiliki dua atribut, yaitu
+    - video_id
+    - product_id
+- Koleksi comments, yang berisi data tentang komentar-komentar dari pengguna yang menonton video live tertentu. Setiap dokumen di koleksi ini memiliki empat atribut, yaitu
+    - video_id
+    - username
+    - comment
+    - timestamp 
 
 ## API Structure
 Struktur API yang digunakan oleh proyek ini adalah REST API, yang menggunakan protokol HTTP untuk berkomunikasi antara klien dan server. Protokol HTTP menyediakan metode permintaan standar seperti GET, POST, PUT, DELETE, dan lainnya untuk mengakses dan memanipulasi sumber daya di server.
